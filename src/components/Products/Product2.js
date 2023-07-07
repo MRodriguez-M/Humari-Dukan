@@ -16,6 +16,7 @@ export default function Product2(props) {
                 <h5 className="m-3 mx-2 text-white">{props.title}</h5>
                 <div className="h-100 d-flex align-items-center">
                 <p className="btn btn-warning ms-auto p-2 rounded-4 text-black d-inline">${props.cost}</p>
+                <p>{props.quantity}</p>
                 <i className="bi bi-x-lg" onClick={handleremove}></i>
 
                 </div>

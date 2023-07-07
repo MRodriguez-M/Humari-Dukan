@@ -10,8 +10,9 @@ export default function Checkout() {
     const data = useSelector(state => state);
     var total=0;
     for(let i=0;i<data.length;i++){
-        total+=data[i].cost;
+        total+=data[i].product.cost * data[i].quantity;
     }
+    
     return (
         <>
             <div className="d-flex" style={{ alignItems: "stretch",minHeight:"90vh" }} >
@@ -20,11 +21,12 @@ export default function Checkout() {
                 </div>
                 <div className="w-40 bg-primary p-5" data-bs-theme="light" style={{ width: "40%" }}>
                     <div style={{ maxHeight: "400px",overflow:"hidden" }}>
-                        {data.map((product) => (
+                        {data.map((item) => (
                             <Product2
-                                title={product.title}
-                                image={product.image}
-                                cost={product.cost}
+                                title={item.product.title}
+                                image={item.product.image}
+                                cost={item.product.cost}
+                                quantity={item.quantity}
                                 type="remove"
                             />
                         ))}
